@@ -1,8 +1,13 @@
-<html>
-    <head>
-        <title>{{ title }} - Microblog</title>
-    </head>
-    <body>
-        <h1>Hello, {{ user.username }}!</h1>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+    {% if number > 500 %}
+        <div><p>Big number: {{ number }}</p></div>
+    {% else %}
+        <div><p>Small number: {{ number }}</p></div>
+    {% endif %}
+{% endblock %}
